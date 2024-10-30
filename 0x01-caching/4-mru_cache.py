@@ -6,7 +6,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 class MRUCache (BaseCaching):
     """MRU Cache class"""
     def __init__(self):
-        """iniitialization"""
+        """iniitialization of class"""
         super().__init__()
 
     def put(self, key, item):
