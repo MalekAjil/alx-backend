@@ -23,7 +23,7 @@ class FIFOCache (BaseCaching):
             return
         if key in self.cache_data:
             self.order.remove(key)
-        elif len(self.cache_data) > BaseCaching.MAX_ITEMS:
+        elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             fk = self.order.pop(0)
             del self.cache_data[fk]
             print("DISCARD:", fk)
