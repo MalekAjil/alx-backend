@@ -18,8 +18,8 @@ class LFUCache (BaseCaching):
         BaseCaching.MAX_ITEMS:
         you must discard the least frequency used item (LFU algorithm)
         if you find more than 1 item to discard,
-        you must use the LRU algorithm to discard only the least recently used
-        you must print DISCARD: with the key discarded and following by a new line
+        must use the LRU algorithm to discard only the least recently used
+        must print DISCARD: with the key discarded and following by a new line
         """
         if key is None or item is None:
             return
