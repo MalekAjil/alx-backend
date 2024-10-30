@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""lru_cache"""
+"""LRUCache module"""
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LRUCache (BaseCaching):
-    """LRU Cache class"""
+    """LRU Cache system"""
     def __init__(self):
         """iniitialization"""
         super().__init__()
