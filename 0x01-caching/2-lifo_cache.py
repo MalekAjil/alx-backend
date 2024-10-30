@@ -8,6 +8,7 @@ class LIFOCache (BaseCaching):
     def __init__(self):
         """iniitialization"""
         super().__init__()
+        self.order = []
 
     def put(self, key, item):
         """assign to the dictionary self.cache_data the item value for
@@ -15,14 +16,19 @@ class LIFOCache (BaseCaching):
         If key or item is None, this method should not do anything.
         If the number of items in self.cache_data is higher that
         BaseCaching.MAX_ITEMS:
-        must discard the first item put in cache (FIFO algorithm)
+        must discard the last item put in cache (FIFO algorithm)
         must print DISCARD: with the key discarded and following by a new line
         """
-        if key is not None and item is not None:
-            self.cache_data[key] = item
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                print("DISCARD:", self.cache_data.last().key)
-                self.cache_data.pop(FIRST)
+        if key is None or item is None:
+            return
+        if key in self.cache_data:
+            self.order.remove(key)
+        elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            fk = self.order.pop(len(self.order) - 1)
+            del self.cache_data[fk]
+            print("DISCARD:", fk)
+        self.cache_data[key] = item
+        self.order.append(key)
 
     def get(self, key):
         """ return the value in self.cache_data linked to key.
