@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """Route for the index page"""
-    return render_template('templates/0-index.html')
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
